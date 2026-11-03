@@ -1,0 +1,40 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 3,
+  "name": "コメント増量",
+  "description": "ニコニコ動画のコメントの表示量を増やす",
+  "version": "8.5",
+  "content_scripts": [
+    {
+      "matches": ["https://www.nicovideo.jp/*", "https://nicovideo.jp/*"],
+      "js": [
+        "lib/tf.js",
+        "lib/body-pix.js",
+        "lib/niconicomments.js",
+        "scripts/state.js",
+        "scripts/rate-limiter.js",
+        "scripts/player-adapter.js",
+        "scripts/comment-loader.js",
+        "scripts/comment-export.js",
+        "scripts/comment-player.js",
+        "scripts/comment-filter.js",
+        "scripts/comment-search.js",
+        "scripts/settings.js",
+        "index.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/*", "files/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}
